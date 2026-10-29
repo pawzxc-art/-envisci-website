@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map | Sinking Ground, Rising Water</title>
+<meta name="description" content="Locate Hagonoy, Bulacan on an interactive map and see the areas named in studies and news reports about land subsidence and flooding.">
+<meta name="theme-color" content="#0A4B63">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="map">
+<main id="main" class="wrap">
+<section class="hero short">
+  <div class="hero-img"><img src="img/tibaguin-stilt-houses.jpg" alt="" width="1400" height="1050"></div>
+  <a class="credit" href="https://commons.wikimedia.org/wiki/File:9373Tibaguin,_Hagonoy,_Bulacan_43.jpg" target="_blank" rel="noopener">Photo: Judgefloro · CC0</a>
+  <div class="hero-body">
+    <span class="eyebrow rise">Interactive map</span>
+    <h1 class="rise">Where is Hagonoy, and what has been reported?</h1>
+    <p class="lede rise">Switch between the municipality, its neighbours and a barangay named in recent reports. Zoom and move the map like any other.</p>
+    <div class="btns rise"></div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="tabs reveal" role="group" aria-label="Map views" id="map-tabs">
+    <button class="tab" type="button" aria-selected="true" data-q="Hagonoy, Bulacan, Philippines" data-z="12">Hagonoy</button>
+    <button class="tab" type="button" aria-selected="false" data-q="San Agustin, Hagonoy, Bulacan, Philippines" data-z="15">San Agustin</button>
+    <button class="tab" type="button" aria-selected="false" data-q="Tibaguin, Hagonoy, Bulacan, Philippines" data-z="15">Tibaguin</button>
+    <button class="tab" type="button" aria-selected="false" data-q="Calumpit, Bulacan, Philippines" data-z="12">Calumpit</button>
+    <button class="tab" type="button" aria-selected="false" data-q="Bulacan, Philippines" data-z="9">Bulacan &amp; Manila Bay</button>
+  </div>
+  <iframe id="gmap" class="map-frame reveal" title="Google Map of the selected area" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps?q=Hagonoy,+Bulacan,+Philippines&z=12&output=embed" allowfullscreen></iframe>
+  <p class="note" style="margin-top:10px">Map by Google Maps. <a id="gmap-open" href="https://www.google.com/maps/search/?api=1&query=Hagonoy%2C+Bulacan%2C+Philippines" target="_blank" rel="noopener">Open in Google Maps</a>. If the map does not load, check your internet connection.</p>
+</section>
+
+<section class="block">
+  <div class="sec-head reveal"><span class="kicker">Areas named in sources</span><h2>What the studies and reports say about each place</h2><p>There is no official barangay-by-barangay subsidence map for Hagonoy that we could find. This table lists only what the cited sources state.</p></div>
+  <div class="tablewrap reveal"><table>
+    <tr><th>Area</th><th>What was reported</th><th>Source</th></tr>
+    <tr><td><strong>Hagonoy and Calumpit</strong></td><td>Subsidence measured by satellite radar; up to about 124.5 mm/year near high-extraction zones (2015 to early 2021).</td><td>ISPRS Annals</td></tr>
+    <tr><td><strong>San Agustin, Hagonoy</strong></td><td>Daily tidal flooding even without rain; raised walkways and check gates overtopped; 4,759 households.</td><td>The Philippine Star, Dec 2025</td></tr>
+    <tr><td><strong>Hagonoy and Obando</strong></td><td>Sinking roads and homes noted.</td><td>UP Resilience Institute</td></tr>
+    <tr><td><strong>Guiguinto, Balagtas, Bulakan</strong></td><td>Highest subsidence in Bulacan, 109 mm/year (2014 to 2020).</td><td>Sulapas et al. 2024</td></tr>
+    <tr><td><strong>Tibaguin, Santo Niño (Hagonoy)</strong></td><td>Floodwater and stilt housing documented in photographs on Wikimedia Commons after a typhoon.</td><td>Wikimedia Commons</td></tr>
+  </table></div>
+</section>
+
+<section class="block">
+  <div class="split">
+    <div class="reveal">
+      <div class="sec-head reveal"><span class="kicker">Reading the map</span><h2>How to use it</h2></div>
+      <ul>
+        <li>Switch to <strong>Satellite</strong> inside the map to see fishponds, rivers and the shoreline.</li>
+        <li>Notice how little land separates Hagonoy's barangays from tidal channels and Manila Bay.</li>
+        <li>Think about the area you live in. Are there canals, fishponds or pumping stations nearby?</li>
+      </ul>
+      <div class="callout"><strong>Not a hazard map</strong>This page is for awareness. Do not use it to decide whether to build, buy or evacuate. For official guidance, contact your barangay, the Municipal DRRMO or the provincial government.</div>
+    </div>
+    <div class="callout teal reveal"><strong>Help build a better picture</strong>Seen new cracks, a leaning post or water where there was none? Add it on the <a href="report.html">Report page</a> with the barangay and a short description.</div>
+  </div>
+</section>
+
+</main>
+<script src="js/site.js"></script>
+<script>
+(function(){
+  const f=document.getElementById("gmap"),open=document.getElementById("gmap-open");
+  document.querySelectorAll("#map-tabs .tab").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll("#map-tabs .tab").forEach(x=>x.setAttribute("aria-selected",String(x===b)));
+    const q=encodeURIComponent(b.dataset.q);
+    f.src="https://www.google.com/maps?q="+q+"&z="+b.dataset.z+"&output=embed";
+    open.href="https://www.google.com/maps/search/?api=1&query="+q;
+  }));
+})();
+</script>
+</body>
+</html>

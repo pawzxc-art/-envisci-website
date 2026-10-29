@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report an Observation | Sinking Ground, Rising Water</title>
+<meta name="description" content="Report cracks, tidal flooding, pumping or other signs of land subsidence in Hagonoy, Bulacan through a community feedback form.">
+<meta name="theme-color" content="#0A4B63">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="report">
+<main id="main" class="wrap">
+<section class="hero short">
+  <div class="hero-img"><img src="img/flooded-lane-hagonoy.jpg" alt="" width="1400" height="1050"></div>
+  <a class="credit" href="https://commons.wikimedia.org/wiki/File:2973Aftermath_of_Typhoon_Vamco_Floodwater_in_Hagonoy,_Bulacan_15.jpg" target="_blank" rel="noopener">Photo: Judgefloro · CC0</a>
+  <div class="hero-body">
+    <span class="eyebrow rise">Community feedback</span>
+    <h1 class="rise">Tell us what you see.</h1>
+    <p class="lede rise">Cracks in walls, water where there was none, a new pump, a change in the tide. Your observations help the community see the pattern.</p>
+    <div class="btns rise"></div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="split" style="align-items:start">
+    <div>
+      <div class="card reveal" id="form-card">
+        <h2 style="font-size:26px;font-weight:800;margin-bottom:6px">Observation form</h2>
+        <p class="note">Prototype: reports are saved <strong>only in this browser</strong>. They are not sent to the municipality. See the right-hand panel to connect a Google Form.</p>
+        <form class="report" id="rf" novalidate>
+          <div class="row2">
+            <div class="field"><label for="name">Name (optional)</label><input id="name" type="text" autocomplete="name"></div>
+            <div class="field"><label for="contact">Email or phone (optional)</label><input id="contact" type="text" autocomplete="off"><span class="hint">Only if you want a follow-up.</span></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="brgy">Barangay *</label>
+              <select id="brgy" required><option value="">Choose…</option></select><span class="err" id="e-brgy"></span></div>
+            <div class="field"><label for="date">Date observed *</label><input id="date" type="date" required><span class="err" id="e-date"></span></div>
+          </div>
+          <div class="field"><label for="kind">What did you observe? *</label>
+            <select id="kind" required><option value="">Choose…</option>
+              <option>Tidal flooding on a dry day</option><option>Floodwater staying longer than before</option>
+              <option>Cracks in a house, wall or floor</option><option>Cracked, sunken or tilted road or walkway</option>
+              <option>Leaning post, fence or structure</option><option>Dike, wall or check gate overtopped or damaged</option>
+              <option>Deep well or pump in use</option><option>Salty or dirty well water</option><option>Other</option></select>
+            <span class="err" id="e-kind"></span></div>
+          <fieldset class="field" style="border:0;padding:0;margin:0"><legend>How serious is it?</legend>
+            <div class="radios">
+              <label><input type="radio" name="sev" value="Minor" checked> Minor</label>
+              <label><input type="radio" name="sev" value="Moderate"> Moderate</label>
+              <label><input type="radio" name="sev" value="Severe"> Severe</label>
+            </div></fieldset>
+          <div class="field"><label for="desc">Describe what you saw *</label><textarea id="desc" required placeholder="Where exactly? How long has it been happening? How high did the water reach?"></textarea><span class="err" id="e-desc"></span></div>
+          <div class="field"><label style="display:flex;gap:10px;align-items:flex-start;font-weight:600"><input id="consent" type="checkbox" style="margin-top:4px;accent-color:var(--brand)"> I agree that this report may be used for community awareness, without my name unless I wrote it above. *</label><span class="err" id="e-consent"></span></div>
+          <div class="btns"><button class="btn primary" type="submit">Submit observation</button><button class="btn" type="reset">Clear</button></div>
+        </form>
+        <div class="ok-box" id="ok" role="status"><strong>Thank you!</strong> Your observation was saved on this device. If this is an emergency, call your barangay or the Municipal DRRMO right away.</div>
+      </div>
+    </div>
+    <div style="display:grid;gap:18px">
+      <div class="card reveal"><h3>Reports saved on this device</h3><p class="note" id="count">0 reports</p>
+        <div id="saved" style="display:grid;gap:10px;max-height:340px;overflow:auto"></div>
+        <div class="btns" style="margin-top:12px"><button class="btn" id="csv" type="button">Download CSV</button><button class="btn" id="clear" type="button">Delete all</button></div></div>
+      <div class="card reveal"><h3>Connect a Google Form</h3>
+        <p>To collect reports from everyone, create a Google Form with the same questions, choose <em>Send → &lt;/&gt; Embed</em>, and paste its link into <code>js/config.js</code>. The form will then appear below automatically.</p></div>
+    </div>
+  </div>
+</section>
+<section class="block" id="gform" hidden>
+  <div class="sec-head reveal"><span class="kicker">Community form</span><h2>Submit through Google Forms</h2></div>
+  <iframe id="gform-frame" class="embed" title="Google Form for community reports" loading="lazy"></iframe>
+</section>
+
+</main>
+<script src="js/site.js"></script>
+<script src="js/config.js"></script>
+<script src="js/report.js"></script>
+</body>
+</html>

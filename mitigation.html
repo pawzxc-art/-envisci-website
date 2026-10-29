@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mitigation and Solutions | Sinking Ground, Rising Water</title>
+<meta name="description" content="Community actions, government initiatives and sustainable practices to slow land subsidence and live with floods in Hagonoy.">
+<meta name="theme-color" content="#0A4B63">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="solutions">
+<main id="main" class="wrap">
+<section class="hero short">
+  <div class="hero-img"><img src="img/flooded-lane-hagonoy.jpg" alt="" width="1400" height="1050"></div>
+  <a class="credit" href="https://commons.wikimedia.org/wiki/File:2973Aftermath_of_Typhoon_Vamco_Floodwater_in_Hagonoy,_Bulacan_15.jpg" target="_blank" rel="noopener">Photo: Judgefloro · CC0</a>
+  <div class="hero-body">
+    <span class="eyebrow rise">Mitigation &amp; solutions</span>
+    <h1 class="rise">We cannot refill the aquifer overnight, but we can slow the sinking.</h1>
+    <p class="lede rise">Solutions work at three levels: what households and barangays do, what government does, and how we use water and land over the long term.</p>
+    <div class="btns rise"><a class="btn ghost" href="#checklist">My action checklist</a></div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="sec-head reveal"><span class="kicker">Three levels</span><h2>Who can do what</h2></div>
+  <div class="grid g3">
+    <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 0 1 0 6M18 14c2 .7 3 2.8 3 6"/></svg></span><h3>Community actions</h3>
+      <ul>
+        <li>Use water wisely and fix leaks; less demand means less pumping.</li>
+        <li>Keep canals, drains and creeks free of garbage so tidal water can drain.</li>
+        <li>Plant and protect mangroves and trees along the shore.</li>
+        <li>Prepare a family emergency kit, evacuation route and a list of flood-safe contacts.</li>
+        <li>Report new cracks, tilting or unusual flooding to the barangay and on this site.</li>
+        <li>Join barangay flood watch and clean-up drives.</li>
+      </ul></div>
+    <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Government initiatives</h3>
+      <ul>
+        <li><strong>Regulate groundwater.</strong> The National Water Resources Board (NWRB) has identified zones where groundwater use is restricted, a UP geologist reported.</li>
+        <li><strong>Monitor the ground.</strong> Researchers recommend long-term satellite (InSAR) monitoring and real-time systems that feed early warnings into planning.</li>
+        <li><strong>Plan land use with subsidence in mind</strong> and improve water-use data from utilities.</li>
+        <li><strong>Build and maintain flood defences</strong> such as dikes, check gates and drainage, with open public reporting on progress.</li>
+        <li>Larger options like a coastal road or megadike have been proposed locally and need careful study.</li>
+      </ul></div>
+    <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19C5 9 11 4 20 4c0 9-5 15-15 15z"/><path d="M5 19c3-5 6-8 10-10"/></svg></span><h3>Sustainable practices</h3>
+      <ul>
+        <li>Shift supply from wells to safe surface water where possible.</li>
+        <li>Harvest rainwater for washing, gardens and cleaning.</li>
+        <li>Reuse greywater where safe and efficient fixtures reduce use.</li>
+        <li>Use mangrove and nipa belts as natural wave and surge buffers.</li>
+        <li>Build and repair homes with raised floors and flood-tolerant materials.</li>
+        <li>Keep open space and soft ground that absorbs water instead of paving every plot.</li>
+      </ul></div>
+  </div>
+  <p class="note" style="margin-top:12px">These lists mix actions reported by officials with measures recommended by researchers. Where possible, each page cites its source; check the References page before treating any item as a policy that is already in force in Hagonoy.</p>
+</section>
+
+<section class="block" id="checklist">
+  <div class="sec-head reveal"><span class="kicker">Do something this week</span><h2>My action checklist</h2><p>Tick what you have done. Your list is saved only on this device.</p></div>
+  <div class="card reveal">
+    <div class="q-bar"><i id="ck-bar"></i></div>
+    <p><strong id="ck-count">0 of 8 done</strong></p>
+    <div id="ck-list" style="display:grid;gap:10px"></div>
+  </div>
+</section>
+
+</main>
+<script src="js/site.js"></script>
+<script>
+(function(){
+  const items=["Check my taps and pipes for leaks","Clear garbage from the drain or canal near my home","Prepare a go-bag: documents, medicine, flashlight, water","Learn my barangay evacuation route and center","Save the barangay hotline in my phone","Move electrical items and valuables above the usual flood line","Tell one neighbour about this site","Send one observation through the Report page"];
+  const KEY="hag-checklist";let st=[];try{st=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){}
+  const list=document.getElementById("ck-list"),bar=document.getElementById("ck-bar"),cnt=document.getElementById("ck-count");
+  function draw(){
+    items.forEach((t,i)=>{const l=list.children[i];if(l)l.querySelector("input").checked=st.includes(i);});
+    const n=st.length;cnt.textContent=n+" of "+items.length+" done"+(n===items.length?". Thank you for protecting your community!":"");
+    bar.style.width=(n/items.length*100)+"%";
+  }
+  items.forEach((t,i)=>{
+    const l=document.createElement("label");l.className="radios";l.style.display="block";
+    const inner=document.createElement("span");inner.style.cssText="display:flex;gap:12px;align-items:center;border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer;font-weight:600";
+    const c=document.createElement("input");c.type="checkbox";c.style.accentColor="var(--brand)";c.style.width="20px";c.style.height="20px";
+    c.addEventListener("change",()=>{st=c.checked?[...new Set([...st,i])]:st.filter(x=>x!==i);try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}draw();});
+    inner.append(c,document.createTextNode(t));l.append(inner);list.append(l);
+  });
+  draw();
+})();
+</script>
+</body>
+</html>
